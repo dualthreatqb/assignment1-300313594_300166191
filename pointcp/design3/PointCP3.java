@@ -1,17 +1,16 @@
-package design2;
+package design3;
 
-public class PointCP2 {
+public class PointCP3 {
   // private char typeCoord;
   private double xOrRho;
   private double yOrTheta;
 
-  public PointCP2(char type, double xOrRho, double yOrTheta) {
+  public PointCP3(char type, double xOrRho, double yOrTheta) {
     if (type != 'C' && type != 'P')
       throw new IllegalArgumentException();
-    if (type == 'C') {
-      // System.out.println("Your Cartesian coordinates: ("+xOrRho+","+yOrTheta+")");
-      this.yOrTheta = Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
-      this.xOrRho = (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2)));
+    if (type == 'P') {
+        this.yOrTheta = (Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
+        this.xOrRho = (Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
     } else {
       this.xOrRho = xOrRho;
       this.yOrTheta = yOrTheta;
@@ -19,22 +18,23 @@ public class PointCP2 {
   }
 
   public double getX() {
-    return (Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
-  }
-
-  public double getY() {
-    return (Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
-  }
-
-  public double getRho() {
     return xOrRho;
   }
 
-  public double getTheta() {
+  public double getY() {
     return yOrTheta;
   }
 
-  public double getDistance(PointCP2 pointB) {
+  public double getRho() {
+    return (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2)));
+    
+  }
+
+  public double getTheta() {
+    return Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
+  }
+
+  public double getDistance(PointCP3 pointB) {
     // Obtain differences in X and Y, sign is not important as these values
     // will be squared later.
     double deltaX = getX() - pointB.getX();
@@ -43,6 +43,6 @@ public class PointCP2 {
     return Math.sqrt((Math.pow(deltaX, 2) + Math.pow(deltaY, 2)));
   }
   public String toString() {
-    return "Stored as Polar [" + getRho() + "," + getTheta() + "]" + "\n";
+    return "Stored as Cartesian [" + getX() + "," + getY() + "]" + "\n";
   }
 }

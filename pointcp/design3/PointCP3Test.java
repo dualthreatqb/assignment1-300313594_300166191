@@ -1,10 +1,10 @@
-package design2;
+package design3;
 
 import java.io.*;
 
-public class PointCP2Test {
+public class PointCP3Test {
     public static void main(String[] args) {
-        PointCP2 point;
+        PointCP3 point;
         // try {
         //     point = new PointCP2(args[0].toUpperCase().charAt(0),
         //             Double.valueOf(args[1]).doubleValue(),
@@ -37,7 +37,7 @@ public class PointCP2Test {
         System.out.println("Time elapsed: "+(end-start)*0.001);
     }
 
-    private static PointCP2 getInputRandom() throws IOException {
+    private static PointCP3 getInputRandom() throws IOException {
         // Information to be passed to the constructor
         char coordType = 'A'; // Temporary default, to be set to P or C
         double a = 0.0;
@@ -54,10 +54,10 @@ public class PointCP2Test {
         a = (double) (Math.random() * 100);
         b = (double) (Math.random() * 100);
         // Return a new PointCP object
-        return (new PointCP2(coordType, a, b));
+        return (new PointCP3(coordType, a, b));
     }
 
-    private static PointCP2 getInput() throws IOException {
+    private static PointCP3 getInput() throws IOException {
         byte[] buffer = new byte[1024]; // Buffer to hold byte input
         boolean isOK = false; // Flag set if input correct
         String theInput = ""; // Input information
@@ -124,6 +124,6 @@ public class PointCP2Test {
             isOK = false;
         }
         // Return a new PointCP object
-        return (new PointCP2(coordType, a, b));
+        return (new PointCP3(coordType, a, b));
     }
 }
