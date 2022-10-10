@@ -1,10 +1,9 @@
 package design2;
 
-public class PointCP2 {
-  // private char typeCoord;
-  private double xOrRho;
-  private double yOrTheta;
+import design5.PointCP5;
 
+public class PointCP2 extends PointCP5 {
+  
   public PointCP2(char type, double xOrRho, double yOrTheta) {
     if (type != 'C' && type != 'P')
       throw new IllegalArgumentException();
@@ -34,9 +33,10 @@ public class PointCP2 {
     return yOrTheta;
   }
 
-  public double getDistance(PointCP2 pointB) {
+  public double getDistance(PointCP5 point) {
     // Obtain differences in X and Y, sign is not important as these values
     // will be squared later.
+    PointCP2 pointB = (PointCP2)point;
     double deltaX = getX() - pointB.getX();
     double deltaY = getY() - pointB.getY();
 

@@ -4,37 +4,41 @@ import java.io.*;
 
 public class PointCP3Test {
     public static void main(String[] args) {
-        PointCP3 point;
-        // try {
-        //     point = new PointCP2(args[0].toUpperCase().charAt(0),
-        //             Double.valueOf(args[1]).doubleValue(),
-        //             Double.valueOf(args[2]).doubleValue());
-        // } catch (Exception e) {
-        //     // If we arrive here, it is because either there were no
-        //     // command line arguments, or they were invalid
-        //     if (args.length != 0)
-        //         System.out.println("Invalid arguments on command line");
-
-        //     try {
-        //         point = getInput();
-        //     } catch (IOException ex) {
-        //         System.out.println("Error getting input. Ending program.");
-        //         return;
-        //     }
-        // }
-        // System.out.println("\nAfter asking to store as Polar:\n" + point);
-        // stuff
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < 99999999; i++) {
-            try {
-                point = getInputRandom();
-            } catch (IOException ex) {
-                System.out.println("Error getting input. Ending program.");
-                return;
-            }
+        PointCP3 point1 = new PointCP3('C', 5, 5);
+        long start1 = System.currentTimeMillis();
+        for (int i = 0; i < 999999999; i++) {
+            point1.getRho();
         }
-        long end = System.currentTimeMillis();
-        System.out.println("Time elapsed: "+(end-start)*0.001);
+        long end1 = System.currentTimeMillis();
+        System.out.println("Time elapsed for getRho(CP3): " + (end1 - start1) * 0.001);
+
+        long start2 = System.currentTimeMillis();
+        for (int i = 0; i < 999999999; i++) {
+            point1.getTheta();
+        }
+        long end2 = System.currentTimeMillis();
+        System.out.println("Time elapsed for getTheta(CP3): " + (end2 - start2) * 0.001);
+
+        long start3 = System.currentTimeMillis();
+        for (int i = 0; i < 999999999; i++) {
+            point1.getX();
+        }
+        long end3 = System.currentTimeMillis();
+        System.out.println("Time elapsed for getX(CP3): " + (end3 - start3) * 0.001);
+
+        long start4 = System.currentTimeMillis();
+        for (int i = 0; i < 999999999; i++) {
+            point1.getY();
+        }
+        long end4 = System.currentTimeMillis();
+        System.out.println("Time elapsed for getY(CP3): " + (end4 - start4) * 0.001);
+
+        long start5 = System.currentTimeMillis();
+        for (int i = 0; i < 999999999; i++) {
+            point1.getDistance(point1);
+        }
+        long end5 = System.currentTimeMillis();
+        System.out.println("Time elapsed for getDistance(CP3): " + (end5 - start5) * 0.001);
     }
 
     private static PointCP3 getInputRandom() throws IOException {

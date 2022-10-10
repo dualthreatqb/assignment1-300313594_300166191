@@ -1,9 +1,12 @@
 package design5;
 
 public abstract class PointCP5 {
-    abstract double getDistance(PointCP5 pointB);
-    abstract double getX();
-    abstract double getY();
-    abstract double getRho();
-    abstract double getTheta();
+    protected double xOrRho;
+    protected double yOrTheta;
+    public abstract double getX();
+    public abstract double getY();
+    public abstract double getRho();
+    public abstract double getTheta();
+    public abstract double getDistance(PointCP5 point);
+    public abstract String toString();
 }
